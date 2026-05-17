@@ -36,7 +36,7 @@ export default function MaintenancePage() {
     e.preventDefault()
     try {
       const { data } = await api.post('/maintenance', form)
-      const newItem = data?.maintenance || {
+      const newItem = data?.maintenance || (data?.maintenance_id ? data : null) || {
         maintenance_id: Date.now(),
         room_id: form.room_id,
         room_name: rooms.find(r => String(r.room_id) === String(form.room_id))?.name || `Кімната ${form.room_id}`,

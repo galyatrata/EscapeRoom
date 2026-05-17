@@ -17,17 +17,19 @@ export default function DashboardPage() {
 
   const fetchData = async () => {
     try {
-      const [rooms, bookings, maintenance] = await Promise.allSettled([
+      const [rooms, bookings, maintenance, analytics] = await Promise.allSettled([
         api.get('/rooms'),
         api.get('/admin/bookings'),
         api.get('/maintenance'),
+        api.get('/analytics'),
       ])
       const bookingData = bookings.value?.data || []
+      const analyticsData = analytics.value?.data || {}
       setStats({
-        rooms:       rooms.value?.data?.length || 0,
-        bookings:    bookingData.length,
-        maintenance: maintenance.value?.data?.length || 0,
-        records:     0,
+        rooms:       analyticsData.rooms ?? rooms.value?.data?.length ?? 0,
+        bookings:    analyticsData.bookings ?? bookingData.length,
+        maintenance: analyticsData.maintenance ?? maintenance.value?.data?.length ?? 0,
+        records:     analyticsData.records ?? 0,
       })
       setRecent(prev => {
         const prevIds = new Set(prev.map(b => b.booking_id))

@@ -1,0 +1,173 @@
+{
+  "users": [
+    {
+      "user_id": 1,
+      "name": "Олена Коваль",
+      "email": "olena.koval@example.com",
+      "password": "ClientPass2026!",
+      "phone": "+380671234567",
+      "role": "client"
+    },
+    {
+      "user_id": 2,
+      "name": "Ігор Мельник",
+      "email": "ihor.melnyk@example.com",
+      "password": "GameMaster2026!",
+      "phone": "+380671112233",
+      "role": "gamemaster"
+    },
+    {
+      "user_id": 3,
+      "name": "Тетяна Бойко",
+      "email": "tetiana.boiko@example.com",
+      "password": "TechPass2026!",
+      "phone": "+380672223344",
+      "role": "technician"
+    },
+    {
+      "user_id": 4,
+      "name": "Адміністратор",
+      "email": "admin@escaperoom.ua",
+      "password": "AdminPass2026!",
+      "phone": "+380673334455",
+      "role": "admin"
+    }
+  ],
+  "rooms": [
+    {
+      "room_id": 1,
+      "name": "Таємниця замку",
+      "description": "Класичний квест у середньовічному замку",
+      "capacity": 6,
+      "duration_minutes": 60,
+      "difficulty": "medium",
+      "price_per_person": 350,
+      "status": "active",
+      "hourly_slots": [
+        "10:00",
+        "12:00",
+        "14:00",
+        "16:00",
+        "18:00",
+        "20:00"
+      ]
+    },
+    {
+      "room_id": 2,
+      "name": "Лабораторія шаленого вченого",
+      "description": "Науково-фантастичний квест для команди",
+      "capacity": 4,
+      "duration_minutes": 60,
+      "difficulty": "hard",
+      "price_per_person": 400,
+      "status": "active",
+      "hourly_slots": [
+        "10:00",
+        "12:00",
+        "14:00",
+        "16:00",
+        "18:00",
+        "20:00"
+      ]
+    },
+    {
+      "room_id": 3,
+      "name": "Піратська бухта",
+      "description": "Пошук скарбу на кораблі з пастками",
+      "capacity": 5,
+      "duration_minutes": 75,
+      "difficulty": "easy",
+      "price_per_person": 320,
+      "status": "active",
+      "hourly_slots": [
+        "11:00",
+        "13:00",
+        "15:00",
+        "17:00",
+        "19:00"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "booking_id": 10,
+      "user_id": 1,
+      "room_id": 1,
+      "date": "2026-05-15",
+      "time_slot": "18:00",
+      "participants": 3,
+      "status": "confirmed",
+      "total_price": 1050,
+      "created_at": "2026-05-10T10:30:00.000Z"
+    },
+    {
+      "booking_id": 11,
+      "user_id": 2,
+      "room_id": 2,
+      "date": "2026-05-16",
+      "time_slot": "20:00",
+      "participants": 4,
+      "status": "pending",
+      "total_price": 1600,
+      "created_at": "2026-05-11T12:10:00.000Z"
+    }
+  ],
+  "maintenance": [
+    {
+      "maintenance_id": 5,
+      "room_id": 2,
+      "reported_by": "Ігор Мельник",
+      "description": "Не працює замок на скриньці з підказками",
+      "status": "new",
+      "assigned_to": "",
+      "created_at": "2026-04-28T10:30:00.000Z",
+      "resolved_at": null
+    }
+  ],
+  "records": [
+    {
+      "record_id": 20,
+      "booking_id": 10,
+      "room_id": 1,
+      "team_name": "Невловимі",
+      "members": [
+        "Олена",
+        "Петро",
+        "Марія"
+      ],
+      "completion_time_seconds": 2340,
+      "hints_used": 1,
+      "success": true,
+      "created_at": "2026-05-15T19:05:00.000Z"
+    },
+    {
+      "record_id": 21,
+      "booking_id": null,
+      "room_id": 1,
+      "team_name": "Dream Team",
+      "members": [
+        "Андрій",
+        "Наталія"
+      ],
+      "completion_time_seconds": 2715,
+      "hints_used": 2,
+      "success": true,
+      "created_at": "2026-05-14T19:05:00.000Z"
+    },
+    {
+      "record_id": 22,
+      "booking_id": null,
+      "room_id": 2,
+      "team_name": "Хіміки",
+      "members": [
+        "Софія",
+        "Максим"
+      ],
+      "completion_time_seconds": 3180,
+      "hints_used": 3,
+      "success": true,
+      "created_at": "2026-05-12T18:20:00.000Z"
+    }
+  ],
+  "adminLog": []
+}

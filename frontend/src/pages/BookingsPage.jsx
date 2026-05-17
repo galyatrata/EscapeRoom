@@ -47,7 +47,7 @@ export default function BookingsPage() {
     e.preventDefault()
     try {
       const { data } = await api.post('/bookings', { ...form, user_id: user?.id })
-      const newBooking = data?.booking || {
+      const newBooking = data?.booking || (data?.booking_id ? data : null) || {
         booking_id: Date.now(),
         room_id: form.room_id,
         room_name: rooms.find(r => String(r.room_id) === String(form.room_id))?.name || `Кімната ${form.room_id}`,
@@ -62,7 +62,7 @@ export default function BookingsPage() {
       toast.success('Бронювання створено!')
       setModal(false)
       setForm(EMPTY)
-    } catch { toast.error('Помилка створення бронювання') }
+    } catch (error) { toast.error(error.response?.data?.error || 'Помилка створення бронювання') }
   }
 
   const handleCancel = async (id) => {

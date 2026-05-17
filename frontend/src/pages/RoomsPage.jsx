@@ -44,7 +44,7 @@ export default function RoomsPage() {
         setRooms(prev => prev.map(r => r.room_id === editId ? { ...r, ...form } : r))
       } else {
         const { data } = await api.post('/rooms', form)
-        const newRoom = data?.room || { ...form, room_id: Date.now() }
+        const newRoom = data?.room || (data?.room_id ? data : null) || { ...form, room_id: Date.now() }
         setRooms(prev => [newRoom, ...prev])
         const id = newRoom.room_id
         setNewIds(s => new Set(s).add(id))
